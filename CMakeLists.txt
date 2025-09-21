@@ -16,12 +16,18 @@ target_link_libraries(imgui
     PUBLIC
     glfw
     OpenGL::GL
+
+)
+
+if (UNIX)
+target_link_libraries(imgui PUBLIC
     dl
     pthread
     X11
     Xi
     Xrandr
 )
+endif()
 target_include_directories(imgui PUBLIC ../glfw/include/)
 
 target_include_directories(imgui PUBLIC .)
